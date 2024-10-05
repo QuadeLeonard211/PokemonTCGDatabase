@@ -26,5 +26,8 @@ class Card(models.Model):
     # the pokemon's suffix if applicable (ie:ex, v, vstar)
     suffix = models.CharField(max_length=20, default="")
 
+    #the dumb card number cause sam said so
+    card_number = models.IntegerField(default=0)
+
     def __str__(self):
         return self.name
