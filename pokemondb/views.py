@@ -3,4 +3,4 @@ from django.http import HttpResponse
 
 # Create your views here.
 def pokemondb_homepage(request):
-    return HttpResponse("Pokemon TCG Database")
+    return render(request, 'pokemondb/homepage.html')
