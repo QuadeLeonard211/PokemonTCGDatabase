@@ -1,7 +1,7 @@
 from django.urls import path
-from . import views
+from .views import pokemondb_homepage_view
 
 app_name = "pokemondb"
 urlpatterns = [
-    path('home/', views.pokemondb_homepage, name='Pokemon TCG Homepage')
+    path('home/', pokemondb_homepage_view.as_view(), name='Pokemon TCG Homepage')
 ]
