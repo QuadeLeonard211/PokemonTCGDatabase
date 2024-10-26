@@ -1,0 +1,16 @@
+body{
+    /*setting the pages background color*/
+    background-color: #A65F3B;
+    /*preventing the page from scrolling*/
+    overflow: hidden;
+}
+
+button{
+    /*setting the color of the button*/
+    background-color: #013F8A;
+    /*setting the buttons text color*/
+    color: #D3E7FF;
+    /*removing the border and outline of the stock button*/
+    outline: none;
+    border: none;
+}
