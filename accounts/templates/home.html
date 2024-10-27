@@ -4,15 +4,16 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-<p>Hi {{ user.username }}!</p>
-<p><a href="{% url 'password_change' %}">Password Change</a></p>
-<form action="{% url 'logout' %}" method="post">
+<p class="mb-4 session-expired-text">Session expired, please re-login.</p>
+<form class="mb-4" action="{% url 'logout' %}" method="post">
   {% csrf_token %}
-  <button type="submit">Log Out</button>
+  <button type="submit" class="logout-button">Log Out</button>
 </form>
 {% else %}
-<p>You are not currently logged in, please log in using the link below</p>
-<p><a href="{% url 'password_reset' %}">Password Reset</a></p>
-<p><a href="{% url 'login' %}">Log In</a></p>
+<p class="sign-in-text">Sign in to PokemonTCG Database</p>
+<p><a href="{% url 'login' %}" class="login-link">Log In</a></p>
+<p><a href="{% url 'password_reset' %}" class="password-reset-link">Password Reset</a></p>
+<p class="mt-5">Don't have an account yet?</p>
+<p><a href="{%url 'signup' %}">Make one here</a></p>
 {% endif %}
 {% endblock %}

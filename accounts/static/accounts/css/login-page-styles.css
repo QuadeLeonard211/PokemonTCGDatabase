@@ -16,3 +16,23 @@ button{
     outline: none;
     border: none;
 }
+
+.sign-in-text{
+    font-size: 36px;
+}
+
+.login-link{
+    font-size: 24px;
+}
+
+.password-reset-link{
+    font-size: 24px;
+}
+
+.session-expired-text{
+    font-size: 36px;
+}
+
+.logout-button{
+    font-size: 24px;
+}
