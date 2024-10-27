@@ -3,6 +3,8 @@ body{
     background-color: #A65F3B;
     /*preventing the page from scrolling*/
     overflow: hidden;
+    /*setting the font family of all text*/
+    font-family: fredoka;
 }
 
 button{
