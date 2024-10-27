@@ -1,5 +1,6 @@
 from django.views.generic import TemplateView, ListView
 from .models import Card
+from django.db.models import Q
 
 # Create your views here.
 class pokemondb_homepage_view(TemplateView):
@@ -14,3 +15,10 @@ class pokemondb_homepage_view(TemplateView):
 class pokemondb_search_results_view(ListView):
     model = Card
     template_name = 'pokemondb/search_results.html'
+
+    def get_queryset(self): # new
+        query = self.request.GET.get("q")
+        object_list = Card.objects.filter(
+            Q(name__icontains = query) | Q(element_type__icontains = query)
+        )
+        return object_list
