@@ -1,0 +1,9 @@
+<h1>Search Results</h1>
+
+<ul>
+  {% for card in object_list %}
+    <li>
+      {{ card.name }}, {{ card.card_number}}
+    </li>
+  {% endfor %}
+</ul>

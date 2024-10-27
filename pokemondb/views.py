@@ -1,4 +1,5 @@
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
+from .models import Card
 
 # Create your views here.
 class pokemondb_homepage_view(TemplateView):
@@ -9,3 +10,7 @@ class pokemondb_homepage_view(TemplateView):
         context = super().get_context_data(**kwargs)
         context['greeting'] = 'Welcome to my homepage!'
         return context
+    
+class pokemondb_search_results_view(ListView):
+    model = Card
+    template_name = 'pokemondb/search_results.html'
