@@ -53,3 +53,10 @@ button{
     /*setting the size of the title of the sign up page to be 36px*/
     font-size: 36px;
 }
+
+.custom-col{
+    background-image: url("../../accounts/img/sand-texture.png");
+    background-color: #EBE1B0;
+    background-size: cover;
+    padding-top: 250px;
+}
