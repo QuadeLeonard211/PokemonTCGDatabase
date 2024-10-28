@@ -1,0 +1,25 @@
+<h1>Filter Results</h1>
+
+<br>
+	<div class="row collapse {% if show_form %} show  {% endif %}" id="form-holder">
+		<div class="row">
+			<div class="col">
+				<div class="card card-body">
+
+					<form method="get">
+						{{my_filter.form.as_p}}
+
+						<button class="btn-primary" type="submit">Search</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</br>
+<ul>
+	{% for card in card_list %}
+	  <li>
+		{{ card.name }}, {{ card.card_number}}
+	  </li>
+	{% endfor %}
+  </ul>

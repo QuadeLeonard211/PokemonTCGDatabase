@@ -1,4 +1,5 @@
 from django.db import models
+import django_filters
 
 #creates table categories for the card database
 class Card(models.Model):
@@ -31,3 +32,4 @@ class Card(models.Model):
 
     def __str__(self):
         return self.name
+    
