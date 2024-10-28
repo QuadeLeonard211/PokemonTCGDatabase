@@ -7,10 +7,10 @@
 <p class="mb-4 session-expired-text">Session expired, please re-login.</p>
 <form class="mb-4" action="{% url 'logout' %}" method="post">
   {% csrf_token %}
-  <button type="submit" class="logout-button">Log Out</button>
+  <button type="submit" class="logout-button ps-4 pe-4">Log Out</button>
 </form>
 {% else %}
-<p class="sign-in-text">Sign in to PokemonTCG Database</p>
+<h2 class="sign-in-text">Sign in to PokemonTCG Database</h2>
 <p><a href="{% url 'login' %}" class="login-link">Log In</a></p>
 <p><a href="{% url 'password_reset' %}" class="password-reset-link">Password Reset</a></p>
 <p class="mt-5">Don't have an account yet?</p>

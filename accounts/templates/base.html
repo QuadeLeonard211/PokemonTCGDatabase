@@ -11,18 +11,32 @@
   </head>
 
   <body>
+    <nav class="navbar" style="background-color: #1C486D;">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="{% static 'accounts/img/pokeball.png' %}" alt="pokeball" width="30" height="30">
+        </a>
+      </div>
+    </nav>
+
     <section class="container-fluid">
       <div class="row">
         <div class="col text-center mt-5 pt-5">
           {% block content %}
           {% endblock %}
         </div>
-        <div class="col ps-0 pe-0 d-none d-md-block">
+        <div class="col ps-0 pe-0 mb-5 d-none d-md-block">
           <img class="img-fluid" src="{% static 'accounts/img/squirtle-sir.jpg' %}" alt="squirtle-sir">
         </div>
       </div>
     </section>
+
+    <nav class="navbar sticky-bottom" style="background-color: #1C486D; color: #D3E7FF;">
+      <div class="container">
+        <p class="acknowledgement-text">Authors: Tucker Mayfield, Samuel Lewis, Danny Clemens, Quade Leonard</p>
+      </div>
+    </nav>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
-
 </html>

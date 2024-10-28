@@ -18,21 +18,31 @@ button{
 }
 
 .sign-in-text{
+    /*setting the text prompting the user to sign in to 36px*/
     font-size: 36px;
 }
 
 .login-link{
+    /*setting the text for the link to the login page to be 24px*/
     font-size: 24px;
 }
 
 .password-reset-link{
+    /*setting the text for the link to the password reset page to be 24px*/
     font-size: 24px;
 }
 
 .session-expired-text{
+    /*setting the text that tells the user their session has expired to 36px*/
     font-size: 36px;
 }
 
 .logout-button{
+    /*setting the button on the session expired page to have a 24px font size*/
     font-size: 24px;
+}
+
+.signup-text{
+    /*setting the size of the title of the sign up page to be 36px*/
+    font-size: 36px;
 }
