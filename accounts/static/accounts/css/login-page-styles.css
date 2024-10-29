@@ -1,0 +1,62 @@
+body{
+    /*setting the pages background color*/
+    background-color: #EBE1B0;
+    /*preventing the page from scrolling*/
+    overflow: hidden;
+    /*setting the font family of all text*/
+    font-family: fredoka;
+}
+
+button{
+    /*setting the color of the button*/
+    background-color: #2B8AA5;
+    /*setting the buttons text color*/
+    color: #D3E7FF;
+    /*removing the border and outline of the stock button*/
+    outline: none;
+    border: none;
+}
+
+.sign-in-text{
+    /*setting the text prompting the user to sign in to 36px*/
+    font-size: 36px;
+}
+
+.login-link{
+    /*setting the text for the link to the login page to be 24px*/
+    font-size: 24px;
+    color: #2B8AA5; /* Change to your desired color */
+}
+
+.password-reset-link{
+    /*setting the text for the link to the password reset page to be 24px*/
+    font-size: 24px;
+    color: #2B8AA5; /* Change to your desired color */
+
+}
+
+.make-account-link{
+    color: #2B8AA5; /* Change to your desired color */
+}
+
+.session-expired-text{
+    /*setting the text that tells the user their session has expired to 36px*/
+    font-size: 36px;
+}
+
+.logout-button{
+    /*setting the button on the session expired page to have a 24px font size*/
+    font-size: 24px;
+}
+
+.signup-text{
+    /*setting the size of the title of the sign up page to be 36px*/
+    font-size: 36px;
+}
+
+.custom-col{
+    background-image: url("../../accounts/img/sand-texture.png");
+    background-color: #EBE1B0;
+    background-size: cover;
+    padding-top: 250px;
+}
