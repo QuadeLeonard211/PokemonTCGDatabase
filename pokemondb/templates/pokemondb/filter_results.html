@@ -2,8 +2,10 @@
 
 <ul>
   {% for card in object_list %}
+    {% with "pokemondb/"|add:card.image as image %}
     <li>
-      {{ card.name }}, {{ card.card_number}}
+      {{ card.name }}, {{ card.card_number}},  <img src="{% static image %}" alt="">
     </li>
+    {% endwith %}
   {% endfor %}
 </ul>

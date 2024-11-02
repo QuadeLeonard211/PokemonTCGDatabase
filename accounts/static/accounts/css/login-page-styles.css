@@ -58,5 +58,6 @@ button{
     background-image: url("../../accounts/img/sand-texture.png");
     background-color: #EBE1B0;
     background-size: cover;
-    padding-top: 250px;
+    background-repeat: repeat-x;
+    background-position-y: bottom;
 }
