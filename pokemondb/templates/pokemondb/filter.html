@@ -20,9 +20,9 @@
 <ul>
 	{% for card in card_list %}
 		{% with "pokemondb/"|add:card.image as image %}
-	  <li>
-		{{ card.name }}, {{ card.card_number}}, <img src="{% static image %}" alt="">
-	  </li>
-	  {% endwith %}
+	  	<li>
+			{{ card.name }}, {{ card.card_number}}, <img src="{% static image %}" alt="">
+	  	</li>
+		{% endwith %}
 	{% endfor %}
   </ul>
