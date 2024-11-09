@@ -15,6 +15,14 @@ class pokemondb_homepage_view(TemplateView):
         context['greeting'] = 'Welcome to my homepage!'
         return context
     
+class pokemondb_gallery_view(TemplateView):
+    template_name = 'pokemondb/gallery.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['message'] = 'Welcome to the gallery!'
+        return context
+    
 class pokemondb_search_results_view(ListView):
     model = Card
     template_name = 'pokemondb/search_results.html'
