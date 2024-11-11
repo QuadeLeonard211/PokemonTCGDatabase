@@ -22,6 +22,15 @@ class pokemondb_gallery_view(TemplateView):
         context = super().get_context_data(**kwargs)
         context['message'] = 'Welcome to the gallery!'
         return context
+
+    def filter_cards(request):
+        card_list = Card.objects.all()
+        my_filter = CardFilter(request.GET, queryset=card_list)
+        card_list = my_filter.qs
+
+        context = {"card_list":card_list, "my_filter":my_filter}
+
+        return render(request, "pokemondb/gallery.html", context)
     
 class pokemondb_search_results_view(ListView):
     model = Card
