@@ -1,0 +1,20 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Full height */
+}
+
+body{
+    /*setting the pages background color*/
+    background-color: #EBE1B0;
+    /*setting the font family of all text*/
+    font-family: fredoka;
+    background-image: url("../../accounts/img/sand-texture.png");
+    background-color: #EBE1B0;
+    background-position: center; /* Center the image */
+    background-repeat: repeat; /* This makes the background image repeat */
+}
