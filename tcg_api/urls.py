@@ -3,5 +3,5 @@ from . import views
 
 app_name = "tcg_api"
 urlpatterns = [
-    path('', views.home, name='home'),
+    path('cards/', views.card_list, name='card_list'),
 ]

@@ -1,9 +1,9 @@
 from django.shortcuts import render
-import requests
+from tcg_api.models import API_cards
 
-def home(request):
-    response = requests.get('https://api.pokemontcg.io/v2/cards/sv6-1')
-    data = response.json()
-    return render(request, 'home.html', {
-        'card_data': data['data']
-    })
+def card_list(request): 
+    cards = API_cards.objects.all()
+    for card in cards:
+        print(card.name)
+    return render(request, 'home.html', {'cards': cards})
+    

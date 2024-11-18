@@ -1,6 +1,14 @@
-{% extends 'base.html' %}
-
-{% block content %}
-  <h2>TCG API</h2>
-  <p>data is {{ card_data }}</p>
-{% endblock %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API List</title>
+</head>
+<body>
+    <h1>API List</h1>
+    <ul>
+        {% for card in cards %}
+        <a href=card.url target="_blank">{{card.name}}</a>
+        {% endfor %}
+    </ul>
+</body>
+</html>
