@@ -1,9 +1,11 @@
 import django_filters
-from django_filters import CharFilter
 from .models import Card
+from accounts.models import CustomUser
 
 class CardFilter(django_filters.FilterSet):
 
     class Meta:
         model = Card
-        fields = ["element_type"]
+        fields = ["element_type", "collection"]
+
+    
