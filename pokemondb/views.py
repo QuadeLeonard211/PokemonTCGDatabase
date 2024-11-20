@@ -29,14 +29,13 @@ class pokemondb_search_results_view(ListView):
         return object_list
 
 def filter_cards(request):
-    #test case to make sure only cards in list show
-    show_owned = True
+    #test case to make sure only cards in list show set to True to display owned cards
+    show_owned = False
     card_list = Card.objects.all()
     current_user = request.user
     if show_owned:
         owned_cards = current_user.listPokemon
         card_list = Card.objects.filter(id__in=owned_cards)
-        print(owned_cards)
     
     my_filter = CardFilter(request.GET, queryset=card_list)
     card_list = my_filter.qs
