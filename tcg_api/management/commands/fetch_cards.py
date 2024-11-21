@@ -24,6 +24,7 @@ class Command(BaseCommand):
                             'name': pokemon['name'],
                             'url': pokemon['tcgplayer']['url'],
                             'rarity': pokemon['rarity'],
+                            'trendPrice': pokemon['cardmarket']['prices']['trendPrice']
                         }
                     )
                 self.stdout.write(self.style.SUCCESS('Successfully populated the database with'))
