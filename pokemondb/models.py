@@ -30,6 +30,9 @@ class Card(models.Model):
     #the dumb card number cause sam said so
     card_number = models.IntegerField(default=0)
 
+    #id to be used when calling the API
+    set_id = models.CharField(max_length=30, default="sv7")
+
     def __str__(self):
         return self.name
     
