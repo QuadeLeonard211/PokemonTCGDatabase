@@ -1,4 +1,7 @@
+import json
 from typing import Any
+from django.http import JsonResponse
+from django.views import View
 from django.views.generic import TemplateView, ListView
 from django.db import models
 from .models import Card
@@ -25,8 +28,15 @@ class pokemondb_gallery_view(TemplateView):
         context['message'] = 'Welcome to the gallery!'
         return context
 
-    def filter_cards(request):
+    def get(self, request):
+        #test case to make sure only cards in list show set to True to display owned cards
+        show_owned = request.GET.get('toggle-ownership-filter') == 'true'  # Will be True if checked, False if not
         card_list = Card.objects.all()
+        current_user = request.user
+        if show_owned:
+            owned_cards = current_user.listPokemon
+            card_list = Card.objects.filter(id__in=owned_cards)
+        
         my_filter = CardFilter(request.GET, queryset=card_list)
         card_list = my_filter.qs
 
@@ -44,6 +54,27 @@ class pokemondb_search_results_view(ListView):
             Q(name__icontains = query) | Q(card_number__icontains = query) | Q(collection__icontains = query) 
         )
         return object_list
+
+class pokemondb_toggle_card_in_collection(View):
+    def post(self, request, *args, **kwargs):
+        data = json.loads(request.body)
+        button_id = data.get('buttonId')
+        print("Button "+str(button_id)+" pressed!")
+        # Perform actions based on button_id
+
+        added = False
+        if not request.user.remove_pokemon(button_id):  # If we fail to remove the card (user didn't have it yet)
+            request.user.add_pokemon(button_id)         # Then add it to the user!
+            added = True
+
+        response_data = {
+            'message': f'{"Card added to your collection!" if added else "Card removed from your collection."}',
+            'success': True
+        }
+        return JsonResponse(response_data)
+
+    def get(self, request, *args, **kwargs):
+        return JsonResponse({'success': False}, status=400)
 
 def filter_cards(request):
     #test case to make sure only cards in list show set to True to display owned cards
