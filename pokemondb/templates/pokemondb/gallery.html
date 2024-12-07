@@ -72,6 +72,7 @@
                         <div class="col-md-4">
                             <img class="img-fluid" src="{% static image %}">
                             <button id="button-1" class="add-to-collection" data-button-id="{{ card.id }}">Add/Remove</button>
+                            <p>Current market value: </p> 
                         </div>
                         {% if forloop.counter|divisibleby:3 and not forloop.last %}
                             </div><div class="row"> <!-- Start a new row after every 3 items -->

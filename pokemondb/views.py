@@ -1,14 +1,16 @@
 import json
 from typing import Any
-from django.http import JsonResponse
+from django.http import HttpResponse, JsonResponse
 from django.views import View
 from django.views.generic import TemplateView, ListView
 from django.db import models
 from .models import Card
+from tcg_api.models import API_cards
 from accounts.models import CustomUser
 from django.db.models import Q
 from django.shortcuts import render
 from .filters import CardFilter
+from django.core.management import call_command
 
 # Create your views here.
 class pokemondb_homepage_view(TemplateView):
@@ -29,6 +31,8 @@ class pokemondb_gallery_view(TemplateView):
         return context
 
     def get(self, request):
+        if (not API_cards.objects.exists()):
+            call_fetch_cards(request)
         #test case to make sure only cards in list show set to True to display owned cards
         show_owned = request.GET.get('toggle-ownership-filter') == 'true'  # Will be True if checked, False if not
         card_list = Card.objects.all()
@@ -43,6 +47,7 @@ class pokemondb_gallery_view(TemplateView):
         context = {"card_list":card_list, "my_filter":my_filter}
 
         return render(request, "pokemondb/gallery.html", context)
+
     
 class pokemondb_search_results_view(ListView):
     model = Card
@@ -91,3 +96,7 @@ def filter_cards(request):
     context = {"card_list":card_list, "my_filter":my_filter}
 
     return render(request, "pokemondb/filter.html", context)
+
+def call_fetch_cards(request):
+        call_command('fetch_cards')
+        return HttpResponse('Custom command has been executed!')
