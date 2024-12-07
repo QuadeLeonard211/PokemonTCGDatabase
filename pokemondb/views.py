@@ -41,7 +41,6 @@ class pokemondb_gallery_view(TemplateView):
 
         combined_list = zip(card_list, api_list)
         
-
         current_user = request.user
         if show_owned:
             owned_cards = current_user.listPokemon
