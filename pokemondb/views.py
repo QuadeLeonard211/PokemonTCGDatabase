@@ -1,3 +1,4 @@
+from itertools import zip_longest
 import json
 from typing import Any
 from django.http import HttpResponse, JsonResponse
@@ -36,15 +37,21 @@ class pokemondb_gallery_view(TemplateView):
         #test case to make sure only cards in list show set to True to display owned cards
         show_owned = request.GET.get('toggle-ownership-filter') == 'true'  # Will be True if checked, False if not
         card_list = Card.objects.all()
+        api_list = API_cards.objects.all()
+
+        combined_list = zip(card_list, api_list)
+        
+
         current_user = request.user
         if show_owned:
             owned_cards = current_user.listPokemon
             card_list = Card.objects.filter(id__in=owned_cards)
+            api_list = API_cards.objects.filter(id__in=owned_cards)
         
         my_filter = CardFilter(request.GET, queryset=card_list)
         card_list = my_filter.qs
 
-        context = {"card_list":card_list, "my_filter":my_filter}
+        context = {"card_list":combined_list, "api_list":api_list, "my_filter":my_filter}
 
         return render(request, "pokemondb/gallery.html", context)
 

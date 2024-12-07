@@ -67,12 +67,12 @@
         <!--container for all of the cards generated in the gallery-->
         <div class="container">
             <div class="row">
-                {% for card in card_list %}
+                {% for card, price in card_list %}
                     {% with "pokemondb/"|add:card.image as image %}
                         <div class="col-md-4">
                             <img class="img-fluid" src="{% static image %}">
                             <button id="button-1" class="add-to-collection" data-button-id="{{ card.id }}">Add/Remove</button>
-                            <p>Current market value: </p> 
+                            <p>Current market value: {{ price.trendPrice }}</p>
                         </div>
                         {% if forloop.counter|divisibleby:3 and not forloop.last %}
                             </div><div class="row"> <!-- Start a new row after every 3 items -->
