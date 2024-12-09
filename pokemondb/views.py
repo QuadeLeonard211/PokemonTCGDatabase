@@ -39,14 +39,19 @@ class pokemondb_gallery_view(TemplateView):
         card_list = Card.objects.all()
         api_list = API_cards.objects.all()
 
-        combined_list = zip(card_list, api_list)
+        
         
         current_user = request.user
         if show_owned:
             owned_cards = current_user.listPokemon
             card_list = Card.objects.filter(id__in=owned_cards)
-            api_list = API_cards.objects.filter(id__in=owned_cards)
+            temp_id_list = []
+            for card in card_list:
+                temp_id_list.append(card.set_id + "-" + str(card.card_number))
+            api_list = API_cards.objects.filter(id__in=temp_id_list)
         
+        combined_list = zip(card_list, api_list)
+
         my_filter = CardFilter(request.GET, queryset=card_list)
         card_list = my_filter.qs
 

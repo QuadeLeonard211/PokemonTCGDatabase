@@ -36,7 +36,8 @@ class collection_view(TemplateView):
             api_card_list.append(temp_api_card)
             collection_value += temp_api_card.trendPrice
 
+        combined_list = zip(card_list, api_card_list)
 
-        context = {"card_list":card_list, "my_filter":my_filter, "api_card_list":api_card_list}
+        context = {"card_list":combined_list, "my_filter":my_filter, "api_card_list":api_card_list}
 
-        return render(request, "pokemondb/gallery.html", context)
+        return render(request, "collection/collection.html", context)
